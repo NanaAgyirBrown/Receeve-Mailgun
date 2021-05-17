@@ -28,7 +28,7 @@ npm i nodemon -D
 ```sh
 npm run start
 ```
-## Generating a public IP for your local host
+## Generating a public IP for your localhost
 
 ```sh
 ngrok.exe http {YOUR_PORT}
@@ -55,14 +55,17 @@ The solution upon successful upload would expose the following EndPoints
            * **GET /response**
               returns a list of saved Mailgun responses from the DB
 
-           * **GET /response?id**
-              returns a specific Mailgun responses from the DB based on the Id which is the primary key.
+           * **POST /response/id**
+              Body {"Id":"" }
+              returns specific Mailgun responses from the DB based on the Id which is the primary key.
+              
 
-           * **GET /response?event**
+           * **POST /response/event**
+              Body {"event":"" }
               returns a list of saved Mailgun responses from the DB based on the _mailgun event type i.e. - DELIVERED, OPENED, CLICKED, UNSUBSCRIBED_.
 
            * **POST /response**
-              this would save to the DB a mailgun payload and also trigger the notification endpoint to notify any subscribed listener. Reference mailgun 
+              this would save to the DB, a mailgun payload and also trigger the notification endpoint to notify any subscribed listener. Reference mailgun 
               for a sample payload.
 
 3. /subscribe
@@ -73,8 +76,8 @@ The solution upon successful upload would expose the following EndPoints
 
 4. /notification
 
-            * This endpoint recieves notifications from the SNS subscribed. 
-            * This endpoint would be posted when everytime there is new mailgun Payload saved. 
+            * This endpoint receives notifications from the SNS subscribed. 
+            * This endpoint would be posted when every time there is a new mailgun Payload saved. 
             * N.B: - You wouldn't need to POST to this endpoint but for test purpose you can a sample payload below to test. 
             * POST /notification
             * {"timestamp":"", "type":"" } 
