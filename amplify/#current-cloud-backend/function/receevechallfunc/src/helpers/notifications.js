@@ -1,4 +1,5 @@
 var AWS = require('aws-sdk');
+const { fstat } = require('fs');
 
 const respObj = require('./responseApi');
 const ret = require('./returnresponse')
@@ -28,7 +29,7 @@ const sns = new AWS.SNS();
     }    
 }
 
-function publish(timestamp, type, res){
+function publish(timestamp, type){
     if(!timestamp || !type) new respObj.responseApi(true, "Empty Payload", false, "", false, null);
 
     let notice = {
@@ -45,20 +46,9 @@ function publish(timestamp, type, res){
 
     try {
         sns.publish(params, function(err, data) {
-            if (err) ret.cleanResponse(new respObj.responseApi(true, err.message, false, "", false, null), res);
-            else ret.cleanResponse(new respObj.responseApi(true, "", false, "", true, data), res);
+            if (err) ret.cleanResponse(new respObj.responseApi(true, err.message, false, "", false, null));
+            else ret.cleanResponse(new respObj.responseApi(true, "", false, "", true, data), null);
         });        
-    } catch (error) {
-        ret.cleanResponse(new respObj.responseApi(false, "", true, error.message, false, ""), res);
-    }
-}
-
-function setUp(setobj, res){
-    if(!setobj) new respObj.responseApi(true, "Empty Payload", false, "", false, null);
-    
-    try {
-        
-               
     } catch (error) {
         ret.cleanResponse(new respObj.responseApi(false, "", true, error.message, false, ""), res);
     }
@@ -66,4 +56,3 @@ function setUp(setobj, res){
 
 module.exports.subcribe = subcribe;
 module.exports.publish = publish;
-module.exports.setUp = setUp;

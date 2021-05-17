@@ -83,7 +83,7 @@
         "TemplateURL": "https://s3.amazonaws.com/amplify-receevechallenge-dev-35144-deployment/amplify-cfn-templates/function/receevechallfunc-cloudformation-template.json",
         "Parameters": {
           "deploymentBucketName": "amplify-receevechallenge-dev-35144-deployment",
-          "s3Key": "amplify-builds/receevechallfunc-733230636d6c57684975-build.zip",
+          "s3Key": "amplify-builds/receevechallfunc-6f394e61793274517557-build.zip",
           "storagereceevechallDBName": "recmailTbl-dev",
           "storagereceevechallDBArn": "arn:aws:dynamodb:eu-central-1:041818268966:table/recmailTbl-dev",
           "env": "dev"

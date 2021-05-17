@@ -17,25 +17,25 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",
-      "lastBuildTimeStamp": "2021-05-17T08:24:27.302Z",
-      "lastPackageTimeStamp": "2021-05-17T08:24:34.619Z",
-      "distZipFilename": "receevechallfunc-733230636d6c57684975-build.zip",
+      "lastBuildTimeStamp": "2021-05-17T22:23:59.099Z",
+      "lastPackageTimeStamp": "2021-05-17T22:24:08.627Z",
+      "distZipFilename": "receevechallfunc-6f394e61793274517557-build.zip",
       "s3Bucket": {
         "deploymentBucketName": "amplify-receevechallenge-dev-35144-deployment",
-        "s3Key": "amplify-builds/receevechallfunc-733230636d6c57684975-build.zip"
+        "s3Key": "amplify-builds/receevechallfunc-6f394e61793274517557-build.zip"
       },
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-receevechallenge-dev-35144-deployment/amplify-cfn-templates/function/receevechallfunc-cloudformation-template.json",
         "logicalId": "functionreceevechallfunc"
       },
-      "lastPushTimeStamp": "2021-05-17T08:25:54.980Z",
+      "lastPushTimeStamp": "2021-05-17T22:25:28.294Z",
       "output": {
         "Region": "eu-central-1",
         "Arn": "arn:aws:lambda:eu-central-1:041818268966:function:receevechallfunc-dev",
         "Name": "receevechallfunc-dev",
         "LambdaExecutionRole": "receevechallengeLambdaRole109e46a6-dev"
       },
-      "lastPushDirHash": "CgP8+ydudCPOv3/9RUsqs2+1nPg=",
+      "lastPushDirHash": "I6YyjFA/eatWDvJqnEoS19QY52k=",
       "dependsOn": [
         {
           "category": "storage",
@@ -56,7 +56,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-receevechallenge-dev-35144-deployment/amplify-cfn-templates/storage/receevechallDB-cloudformation-template.json",
         "logicalId": "storagereceevechallDB"
       },
-      "lastPushTimeStamp": "2021-05-17T08:25:54.937Z",
+      "lastPushTimeStamp": "2021-05-17T22:25:28.214Z",
       "output": {
         "PartitionKeyName": "Id",
         "SortKeyName": "Event",
@@ -88,13 +88,13 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-receevechallenge-dev-35144-deployment/amplify-cfn-templates/api/receevechallApi-cloudformation-template.json",
         "logicalId": "apireceevechallApi"
       },
-      "lastPushTimeStamp": "2021-05-17T08:25:54.955Z",
+      "lastPushTimeStamp": "2021-05-17T22:25:28.233Z",
       "output": {
         "ApiName": "receevechallApi",
         "RootUrl": "https://1phvu7olh5.execute-api.eu-central-1.amazonaws.com/dev",
         "ApiId": "1phvu7olh5"
       },
-      "lastPushDirHash": "AZRNrxud5A+9n1hLBr8MmGe9RiA="
+      "lastPushDirHash": "/tG8q9MtTCIHIF6O6D50uebnmxs="
     }
   }
 }

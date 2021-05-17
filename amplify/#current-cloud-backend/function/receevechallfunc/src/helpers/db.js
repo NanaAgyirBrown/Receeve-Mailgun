@@ -38,7 +38,7 @@ function getMailResponses(res){
 }
 
 function saveMailResponse (mailgunPayload, res){
-    if(!mailgunPayload) ret.cleanResponse(new respObj.responseApi(true, "Empty Payload", false, "", false, null), res);
+    if(!mailgunPayload) return ret.cleanResponse(new respObj.responseApi(true, "Empty Payload", false, "", false, null), res);
   
     if(validate(mailgunPayload.signature.timestamp, mailgunPayload.signature.token, mailgunPayload.signature.signature)){
         const params = {
@@ -55,7 +55,7 @@ function saveMailResponse (mailgunPayload, res){
           noSqlClient.put(params, (error, data) => {
               if(error) ret.cleanResponse(new respObj.responseApi(true, error.message, false, "", false, null), res);
               else{
-                  notification.publish(mailgunPayload.signature.timestamp, mailgunPayload["event-data"].event, res);
+                  notification.publish(mailgunPayload.signature.timestamp, mailgunPayload["event-data"].event);
 
                   ret.cleanResponse(new respObj.responseApi(false, "", false, "", true, data.Items), res);
               }
@@ -71,13 +71,17 @@ function saveMailResponse (mailgunPayload, res){
 }
 
 function getMailResponsesById(Id, res){
-    if(!Id) ret.cleanResponse(new respObj.responseApi(true, "Empty Payload", false, "", false, null), res);
+    if(!Id) return ret.cleanResponse(new respObj.responseApi(true, "Empty Payload", false, "", false, null), res);
     
     const params = {
         TableName: tableName,
-        Key: {
-            "Id": Id
-        }
+        KeyConditionExpression: "#Id = :Id",
+        ExpressionAttributeNames:{
+            "#Id": "Id"
+        },
+        ExpressionAttributeValues: {
+            ":Id": Id
+        }        
       };
 
       try {  
@@ -90,20 +94,30 @@ function getMailResponsesById(Id, res){
       }    
 }
 
-function getMailResponsesByEvent(event, res){
-  if(!event) ret.cleanResponse(new respObj.responseApi(true, "Empty Payload", false, "", false, null), res);
+function getMailResponsesByEvent(Event, res){
+  
+  if(!Event) return ret.cleanResponse(new respObj.responseApi(true, "Empty Payload", false, "", false, null), res);
 
-    const params = {
+    /*const params = {
       TableName: tableName,
-      ConditionExpression: "Event = :a",
+      ReturnConsumedCapacity: "TOTAL",
+      Limit: 50,
+      FilterExpression: "#n0 = :v0",
+      ExpressionAttributeNames: {
+        "#n0":"Event"
+      },
       ExpressionAttributeValues: {
-          ":a": event
+        ":v0": {
+          "S": Event
+        }
       }
-    };
+    };*/
+
+    const params = {"TableName":"recmailTbl-dev","ReturnConsumedCapacity":"TOTAL","Limit":50,"FilterExpression":"#n0 = :v0","ExpressionAttributeNames":{"#n0":"Event"},"ExpressionAttributeValues":{":v0":{"S":"delivered"}}};
   
     try {  
-      noSqlClient.query(params, (error, data) => {
-        if(error) ret.cleanResponse(respObj.responseApi(true, error.message, false, "", false, null), res);
+      noSqlClient.scan(params, (error, data) => {
+        if(error) ret.cleanResponse(new respObj.responseApi(true, error.message, false, "", false, null), res);
         else ret.cleanResponse(new respObj.responseApi(false, "", false, "", true, data.Items), res);     
       });
     } catch (error) {
@@ -112,7 +126,7 @@ function getMailResponsesByEvent(event, res){
 }
 
 function deleteMailResponsesById(Id, res) {
-    if(!Id) ret.cleanResponse(new respObj.responseApi(true, "Empty Payload", false, "", false, null), res);
+    if(!Id) return ret.cleanResponse(new respObj.responseApi(true, "Empty Payload", false, "", false, null), res);
 
     const params = {
         TableName: tableName,
@@ -133,7 +147,7 @@ function deleteMailResponsesById(Id, res) {
 }
 
 function deleteMailResponsesByEvent(event, res) {
-    if(!event) ret.cleanResponse(new respObj.responseApi(true, "Empty Payload", false, "", false, null), res);
+    if(!event) return ret.cleanResponse(new respObj.responseApi(true, "Empty Payload", false, "", false, null), res);
 
     const params = {
         TableName: tableName,

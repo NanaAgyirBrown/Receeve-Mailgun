@@ -1,67 +1,84 @@
 {
-  "paths": [
-    {
-      "name": "/subscribe",
-      "lambdaFunction": "receevechallfunc",
-      "privacy": {
-        "open": true
-      },
-      "policyResourceName": "/subscribe"
+    "paths": [
+        {
+            "name": "/subscribe",
+            "lambdaFunction": "receevechallfunc",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/subscribe"
+        },
+        {
+            "name": "/publish",
+            "lambdaFunction": "receevechallfunc",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/publish"
+        },
+        {
+            "name": "/notification",
+            "lambdaFunction": "receevechallfunc",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/notification"
+        },
+        {
+            "name": "/response",
+            "lambdaFunction": "receevechallfunc",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/response"
+        },
+        {
+            "name": "/setup",
+            "lambdaFunction": "receevechallfunc",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/setup"
+        },
+        {
+            "name": "/response/id",
+            "lambdaFunction": "receevechallfunc",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/response/id"
+        },
+        {
+            "name": "/response/event",
+            "lambdaFunction": "receevechallfunc",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/response/event"
+        }
+    ],
+    "resourceName": "receevechallApi",
+    "apiName": "receevechallApi",
+    "functionArns": [
+        {
+            "lambdaFunction": "receevechallfunc"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-receevechallenge-dev-35144-authRole",
+        "unAuthRoleName": "amplify-receevechallenge-dev-35144-unauthRole"
     },
-    {
-      "name": "/publish",
-      "lambdaFunction": "receevechallfunc",
-      "privacy": {
-        "open": true
-      },
-      "policyResourceName": "/publish"
-    },
-    {
-      "name": "/notification",
-      "lambdaFunction": "receevechallfunc",
-      "privacy": {
-        "open": true
-      },
-      "policyResourceName": "/notification"
-    },
-    {
-      "name": "/response",
-      "lambdaFunction": "receevechallfunc",
-      "privacy": {
-        "open": true
-      },
-      "policyResourceName": "/response"
-    },
-    {
-      "name": "/setup",
-      "lambdaFunction": "receevechallfunc",
-      "privacy": {
-        "open": true
-      },
-      "policyResourceName": "/setup"
-    }
-  ],
-  "resourceName": "receevechallApi",
-  "apiName": "receevechallApi",
-  "functionArns": [
-    {
-      "lambdaFunction": "receevechallfunc"
-    }
-  ],
-  "privacy": {
-    "auth": 0,
-    "unauth": 0,
-    "authRoleName": "amplify-receevechallenge-dev-35144-authRole",
-    "unAuthRoleName": "amplify-receevechallenge-dev-35144-unauthRole"
-  },
-  "dependsOn": [
-    {
-      "category": "function",
-      "resourceName": "receevechallfunc",
-      "attributes": [
-        "Name",
-        "Arn"
-      ]
-    }
-  ]
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "receevechallfunc",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ],
+    "uuid": "e9c776ec"
 }

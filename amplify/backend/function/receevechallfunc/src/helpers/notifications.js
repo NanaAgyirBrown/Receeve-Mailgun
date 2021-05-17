@@ -1,4 +1,5 @@
 var AWS = require('aws-sdk');
+const { fstat } = require('fs');
 
 const respObj = require('./responseApi');
 const ret = require('./returnresponse')
@@ -53,17 +54,5 @@ function publish(timestamp, type){
     }
 }
 
-function setUp(setobj, res){
-    if(!setobj) new respObj.responseApi(true, "Empty Payload", false, "", false, null);
-    
-    try {
-        
-               
-    } catch (error) {
-        ret.cleanResponse(new respObj.responseApi(false, "", true, error.message, false, ""), res);
-    }
-}
-
 module.exports.subcribe = subcribe;
 module.exports.publish = publish;
-module.exports.setUp = setUp;

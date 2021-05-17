@@ -15,7 +15,7 @@
       "function": {
         "receevechallfunc": {
           "deploymentBucketName": "amplify-receevechallenge-dev-35144-deployment",
-          "s3Key": "amplify-builds/receevechallfunc-733230636d6c57684975-build.zip"
+          "s3Key": "amplify-builds/receevechallfunc-6f394e61793274517557-build.zip"
         }
       }
     }
