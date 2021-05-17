@@ -1,0 +1,100 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-receevechallenge-dev-35144-authRole",
+      "UnauthRoleArn": "arn:aws:iam::041818268966:role/amplify-receevechallenge-dev-35144-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::041818268966:role/amplify-receevechallenge-dev-35144-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-receevechallenge-dev-35144-deployment",
+      "UnauthRoleName": "amplify-receevechallenge-dev-35144-unauthRole",
+      "StackName": "amplify-receevechallenge-dev-35144",
+      "StackId": "arn:aws:cloudformation:eu-central-1:041818268966:stack/amplify-receevechallenge-dev-35144/35faa9f0-b6c3-11eb-86ac-06c574e71326",
+      "AmplifyAppId": "d2ru61zcelkio1"
+    }
+  },
+  "function": {
+    "receevechallfunc": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2021-05-17T08:24:27.302Z",
+      "lastPackageTimeStamp": "2021-05-17T08:24:34.619Z",
+      "distZipFilename": "receevechallfunc-733230636d6c57684975-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-receevechallenge-dev-35144-deployment",
+        "s3Key": "amplify-builds/receevechallfunc-733230636d6c57684975-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-receevechallenge-dev-35144-deployment/amplify-cfn-templates/function/receevechallfunc-cloudformation-template.json",
+        "logicalId": "functionreceevechallfunc"
+      },
+      "lastPushTimeStamp": "2021-05-17T08:25:54.980Z",
+      "output": {
+        "Region": "eu-central-1",
+        "Arn": "arn:aws:lambda:eu-central-1:041818268966:function:receevechallfunc-dev",
+        "Name": "receevechallfunc-dev",
+        "LambdaExecutionRole": "receevechallengeLambdaRole109e46a6-dev"
+      },
+      "lastPushDirHash": "CgP8+ydudCPOv3/9RUsqs2+1nPg=",
+      "dependsOn": [
+        {
+          "category": "storage",
+          "resourceName": "receevechallDB",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ]
+    }
+  },
+  "storage": {
+    "receevechallDB": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-receevechallenge-dev-35144-deployment/amplify-cfn-templates/storage/receevechallDB-cloudformation-template.json",
+        "logicalId": "storagereceevechallDB"
+      },
+      "lastPushTimeStamp": "2021-05-17T08:25:54.937Z",
+      "output": {
+        "PartitionKeyName": "Id",
+        "SortKeyName": "Event",
+        "SortKeyType": "S",
+        "Region": "eu-central-1",
+        "Arn": "arn:aws:dynamodb:eu-central-1:041818268966:table/recmailTbl-dev",
+        "StreamArn": "arn:aws:dynamodb:eu-central-1:041818268966:table/recmailTbl-dev/stream/2021-05-17T04:13:48.611",
+        "PartitionKeyType": "S",
+        "Name": "recmailTbl-dev"
+      },
+      "lastPushDirHash": "Haa1mxzWIB5DWs0rJbZIrf9GddE="
+    }
+  },
+  "api": {
+    "receevechallApi": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "receevechallfunc",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ],
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-receevechallenge-dev-35144-deployment/amplify-cfn-templates/api/receevechallApi-cloudformation-template.json",
+        "logicalId": "apireceevechallApi"
+      },
+      "lastPushTimeStamp": "2021-05-17T08:25:54.955Z",
+      "output": {
+        "ApiName": "receevechallApi",
+        "RootUrl": "https://1phvu7olh5.execute-api.eu-central-1.amazonaws.com/dev",
+        "ApiId": "1phvu7olh5"
+      },
+      "lastPushDirHash": "AZRNrxud5A+9n1hLBr8MmGe9RiA="
+    }
+  }
+}

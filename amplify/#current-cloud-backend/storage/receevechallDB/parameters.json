@@ -1,0 +1,7 @@
+{
+    "tableName": "recmailTbl",
+    "partitionKeyName": "Id",
+    "partitionKeyType": "S",
+    "sortKeyName": "Event",
+    "sortKeyType": "S"
+}

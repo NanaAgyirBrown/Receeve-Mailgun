@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-receevechallenge-dev-35144-authRole",
+      "UnauthRoleArn": "arn:aws:iam::041818268966:role/amplify-receevechallenge-dev-35144-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::041818268966:role/amplify-receevechallenge-dev-35144-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-receevechallenge-dev-35144-deployment",
+      "UnauthRoleName": "amplify-receevechallenge-dev-35144-unauthRole",
+      "StackName": "amplify-receevechallenge-dev-35144",
+      "StackId": "arn:aws:cloudformation:eu-central-1:041818268966:stack/amplify-receevechallenge-dev-35144/35faa9f0-b6c3-11eb-86ac-06c574e71326",
+      "AmplifyAppId": "d2ru61zcelkio1"
+    },
+    "categories": {
+      "function": {
+        "receevechallfunc": {
+          "deploymentBucketName": "amplify-receevechallenge-dev-35144-deployment",
+          "s3Key": "amplify-builds/receevechallfunc-733230636d6c57684975-build.zip"
+        }
+      }
+    }
+  }
+}
